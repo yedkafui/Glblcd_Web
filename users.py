@@ -10,7 +10,7 @@ user_data = {
 
 @app.route('/')
 def index():
-    app.send_static_file('login.html')
+    app.send_static_file('index.html')
 
 
 @app.route('/validate')
@@ -22,4 +22,8 @@ def validate():
         return jsonify({"message":"Login successful"})
     else:
         return jsonify({"message":"Invalid login."})
+
+if __name__ == "__main__":
+    app.run(debug=True)
+
 
