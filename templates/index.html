@@ -16,7 +16,7 @@
     </head>
     <body>
         <div class="container">
-                    <form margin ="100px" id="users">
+                    <form margin ="100px" id="users" met>
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Username</label>
               <input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp">
@@ -41,10 +41,11 @@
                 event.preventDefault();
                 
                 const username = document.getElementById("username").value;
-                const userpassword = document.getElementById('password').value;
+                const password = document.getElementById('password').value;
+                
                 
                 // Send the user input to the server for comparison
-                fetch(`/compare?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`)
+                fetch(`/validate?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`)
                     .then(response => response.json())
                     .then(data => {
                         document.getElementById("result").textContent = data.message;

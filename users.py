@@ -10,13 +10,16 @@ user_data = {
 
 @app.route('/')
 def index():
-    app.send_static_file('index.html')
+     
+     return render_template('index.html')
 
 
 @app.route('/validate')
 def validate():
     username = request.args.get('username')
     password = request.args.get('password')
+
+    
 
     if username in user_data and user_data[username] == password:
         return jsonify({"message":"Login successful"})
